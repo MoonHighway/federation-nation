@@ -1,0 +1,186 @@
+[
+  {
+    "name": "Astra Express",
+    "capacity": 3,
+    "status": "OPEN",
+    "night": false,
+    "elevationGain": 899,
+    "time": "8 minutes",
+    "trails": [
+      "blue-bird",
+      "blackhawk",
+      "ducks-revenge",
+      "ice-streak",
+      "parachute",
+      "goosebumps"
+    ],
+    "id": "astra-express"
+  },
+  {
+    "name": "Jazz Cat",
+    "capacity": 2,
+    "status": "OPEN",
+    "night": false,
+    "elevationGain": 1230,
+    "trails": [
+      "goosebumps",
+      "river-run",
+      "ducks-revenge",
+      "cape-cod",
+      "grandma",
+      "wild-child",
+      "old-witch"
+    ],
+    "id": "jazz-cat"
+  },
+  {
+    "name": "Jolly Roger",
+    "capacity": 6,
+    "status": "OPEN",
+    "night": true,
+    "elevationGain": 1350,
+    "trails": [
+      "dance-fight",
+      "sneaky-pete",
+      "bear-cave",
+      "humpty-dumpty",
+      "meatball",
+      "early-riser",
+      "sunset"
+    ],
+    "id": "jolly-roger"
+  },
+  {
+    "name": "Neptune Rope",
+    "capacity": 1,
+    "status": "OPEN",
+    "night": false,
+    "elevationGain": 50,
+    "trails": ["home-run", "crosscut"],
+    "id": "neptune-rope"
+  },
+  {
+    "name": "Panorama",
+    "capacity": 8,
+    "status": "HOLD",
+    "night": false,
+    "elevationGain": 2800,
+    "trails": [
+      "ocean-breeze",
+      "songstress",
+      "mountain-run",
+      "summit-saunter",
+      "hemmed-slacks",
+      "davids-dive",
+      "quarry-chute",
+      "sunset",
+      "blackhawk"
+    ],
+    "id": "panorama"
+  },
+  {
+    "name": "Prickly Peak",
+    "capacity": 3,
+    "status": "OPEN",
+    "night": false,
+    "elevationGain": 1700,
+    "trails": [
+      "crooked-chute",
+      "marks-chute",
+      "the-terrible-chute",
+      "magma-chute",
+      "saddleback-chute",
+      "omega-chute",
+      "adirondack-chute",
+      "chicken-out-traverse"
+    ],
+    "id": "prickly-peak"
+  },
+  {
+    "name": "Snowtooth Express",
+    "capacity": 6,
+    "status": "OPEN",
+    "night": false,
+    "elevationGain": 1480,
+    "trails": [
+      "blue-streak",
+      "hoya-saxa",
+      "michigan-ave",
+      "parker-downhill",
+      "wiggle-waggle",
+      "meow-face",
+      "golden-ticket"
+    ],
+    "id": "snowtooth-express"
+  },
+  {
+    "name": "Summit",
+    "capacity": 6,
+    "status": "CLOSED",
+    "night": false,
+    "elevationGain": 1480,
+    "trails": [
+      "golden-ticket",
+      "summit-bowl",
+      "hangar-bowl",
+      "big-gully",
+      "bigger-gully",
+      "broadway-bowl",
+      "fish-bowl"
+    ],
+    "id": "summit"
+  },
+  {
+    "name": "Wally's",
+    "capacity": 2,
+    "status": "HOLD",
+    "night": false,
+    "elevationGain": 820,
+    "trails": [
+      "buford",
+      "slippy-stream",
+      "peacock",
+      "fun-run",
+      "sweet-treat",
+      "stump-alley"
+    ],
+    "id": "wallys"
+  },
+  {
+    "name": "Western States",
+    "capacity": 6,
+    "status": "CLOSED",
+    "night": false,
+    "elevationGain": 1330,
+    "trails": [
+      "centennial",
+      "biennial",
+      "millenial",
+      "searcher",
+      "white-lightning",
+      "richards-return",
+      "head-chutes-gate-a",
+      "head-chutes-gate-b",
+      "head-chutes-gate-c"
+    ],
+    "id": "western-states"
+  },
+  {
+    "name": "Whirlybird",
+    "capacity": 2,
+    "status": "HOLD",
+    "night": false,
+    "elevationGain": 1003,
+    "trails": [
+      "bird-glade",
+      "big-bird",
+      "roller-park",
+      "owl-glade",
+      "whippersnapper-ridge",
+      "drop-in",
+      "mosh-pit",
+      "richards-return"
+    ],
+    "id": "whirlybird"
+  }
+]
