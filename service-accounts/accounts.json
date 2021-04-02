@@ -1,0 +1,14 @@
+[
+  {
+    "email": "eve@moonhighway.com",
+    "name": "Eve Porcello",
+    "password": "$2b$10$ReqP7NJQwltbiIzOW5XSe.l9x0uDizkVs6I8ZkwCwUeAIhtiGPri2",
+    "created": "2019-10-25T02:53:34.373Z"
+  },
+  {
+    "email": "alex@moonhighway.com",
+    "name": "Alex Banks",
+    "password": "$2b$10$4fkF68s2PmoI3t.c.z3hcu9xDRAKiuyxFollQiCHvWttNtm4Q3hnC",
+    "created": "2019-10-25T03:07:08.521Z"
+  }
+]

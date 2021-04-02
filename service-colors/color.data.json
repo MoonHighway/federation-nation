@@ -1,0 +1,20 @@
+[
+  {
+    "id": "R82rQsRg",
+    "title": "Rad Red",
+    "value": "#FF0000",
+    "created": "2019-10-19T18:52:36.043Z",
+    "createdBy": {
+      "email": "alex@moonhighway.com"
+    }
+  },
+  {
+    "id": "th9zNoMw",
+    "title": "Big Blue",
+    "value": "#0000FF",
+    "created": "2019-10-19T19:02:57.475Z",
+    "createdBy": {
+      "email": "eve@moonhighway.com"
+    }
+  }
+]
