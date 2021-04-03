@@ -25,6 +25,7 @@ class AuthenticatedDataSource extends RemoteGraphQLDataSource {
 
       request.http.headers.set("authorization", context.authorization);
     }
+    request.http.headers.set("app-id", "hue-review");
   }
 }
 
@@ -32,6 +33,7 @@ const gateway = new ApolloGateway({
   serviceList: [
     { name: "users", url: "http://localhost:4001" },
     { name: "colors", url: "http://localhost:4002" },
+    { name: "reviews", url: "http://localhost:4003" },
   ],
   buildService({ url }) {
     return new AuthenticatedDataSource({ url });

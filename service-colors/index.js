@@ -11,11 +11,21 @@ const typeDefs = gql`
     value: String!
     created: DateTime!
     createdBy: User!
+    feedback: ReviewableItem!
   }
 
   extend type User @key(fields: "email") {
     email: ID! @external
     postedColors: [Color!]!
+  }
+
+  extend type ReviewableItem @key(fields: "itemID") {
+    itemID: ID! @external
+  }
+  extend type Review @key(fields: "id") {
+    id: ID! @external
+    itemID: ID! @external
+    color: Color! @requires(fields: "itemID")
   }
 
   type Query {
@@ -55,6 +65,12 @@ const resolvers = {
   },
   ColorPayload: {
     __resolveType: (parent) => (parent.message ? "Error" : "Color"),
+  },
+  Color: {
+    feedback: ({ id }) => ({ itemID: id }),
+  },
+  Review: {
+    color: ({ itemID }, args, { findColor }) => findColor(itemID),
   },
 };
 
