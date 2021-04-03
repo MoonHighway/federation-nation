@@ -7,3 +7,5 @@ Student files for Moon Highway's Federation Nation Course
 ## Working In Isolation
 
 ## Federated Products
+
+## Course Lab

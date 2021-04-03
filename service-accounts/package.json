@@ -4,8 +4,7 @@
   "description": "Let' build an account service",
   "main": "index.js",
   "scripts": {
-    "start": "node -r dotenv/config .",
-    "start:dev": "nodemon -r dotenv/config . -e graphql,js"
+    "start": "PORT=4001 nodemon ."
   },
   "keywords": [],
   "author": "",
@@ -17,7 +16,6 @@
     "@apollo/federation": "^0.23.0",
     "apollo-server": "^2.22.2",
     "bcrypt": "^5.0.1",
-    "dotenv": "^8.2.0",
     "graphql": "^15.5.0",
     "jsonwebtoken": "^8.5.1"
   }

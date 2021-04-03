@@ -4,8 +4,7 @@
   "description": "A service to manage all of the colors posted to the hue-review.",
   "main": "index.js",
   "scripts": {
-    "start": "node -r dotenv/config .",
-    "start:dev": "nodemon -r dotenv/config . -e graphql,js"
+    "start": "PORT=4002 nodemon ."
   },
   "keywords": [],
   "author": "",
@@ -14,9 +13,7 @@
     "nodemon": "^2.0.7"
   },
   "dependencies": {
-    "@apollo/federation": "^0.23.0",
     "apollo-server": "^2.9.6",
-    "dotenv": "^8.2.0",
     "graphql": "^15.5.0",
     "shortid": "^2.2.15"
   }

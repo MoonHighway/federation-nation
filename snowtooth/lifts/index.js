@@ -30,27 +30,27 @@ const typeDefs = gql`
 const resolvers = {
   Query: {
     allLifts: (root, { status }) =>
-      !status ? lifts : lifts.filter(lift => lift.status === status),
-    Lift: (root, { id }) => lifts.find(lift => id === lift.id),
+      !status ? lifts : lifts.filter((lift) => lift.status === status),
+    Lift: (root, { id }) => lifts.find((lift) => id === lift.id),
     liftCount: (root, { status }) =>
       !status
         ? lifts.length
-        : lifts.filter(lift => lift.status === status).length
+        : lifts.filter((lift) => lift.status === status).length,
   },
   Mutation: {
     setLiftStatus: (root, { id, status }) => {
-      let updatedLift = lifts.find(lift => id === lift.id);
+      let updatedLift = lifts.find((lift) => id === lift.id);
       updatedLift.status = status;
       return updatedLift;
-    }
-  }
+    },
+  },
 };
 
 const server = new ApolloServer({
   typeDefs,
-  resolvers
+  resolvers,
 });
 
-server.listen(4001).then(({ url }) => {
+server.listen(process.env.PORT).then(({ url }) => {
   console.log(`🚠 Snowtooth Lift Service running at ${url}`);
 });
