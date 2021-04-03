@@ -5,14 +5,14 @@ const {
   addAccount,
   findAllAccounts,
   findAccount,
-  verifyPassword
+  verifyPassword,
 } = require("./lib");
 const jwt = require("jsonwebtoken");
 
 const typeDefs = gql`
   scalar DateTime
 
-  type User {
+  type User @key(fields: "email") {
     email: ID!
     name: String!
     created: DateTime!
@@ -43,7 +43,7 @@ const typeDefs = gql`
 const resolvers = {
   Query: {
     me: (_, __, { currentUser }) => currentUser,
-    accounts: (_, __, { findAllAccounts }) => findAllAccounts()
+    accounts: (_, __, { findAllAccounts }) => findAllAccounts(),
   },
   Mutation: {
     async createAccount(_, { input }, { addAccount }) {
@@ -51,7 +51,7 @@ const resolvers = {
       const token = jwt.sign({ email: user.email }, "graphqlyall");
       return {
         token,
-        user
+        user,
       };
     },
     authorize(_, { email, password }, { findAccount }) {
@@ -65,17 +65,22 @@ const resolvers = {
       const token = jwt.sign({ email: user.email }, "graphqlyall");
       return {
         token,
-        user
+        user,
       };
-    }
-  }
+    },
+  },
+  User: {
+    __resolveReference({ email }, { findAccount }) {
+      return findAccount(email);
+    },
+  },
 };
 
 const start = async () => {
   const server = new ApolloServer({
     schema: buildFederatedSchema({
       typeDefs,
-      resolvers
+      resolvers,
     }),
     mocks: true,
     mockEntireSchema: false,
@@ -97,9 +102,9 @@ const start = async () => {
         addAccount,
         findAccount,
         findAllAccounts,
-        verifyPassword
+        verifyPassword,
       };
-    }
+    },
   });
 
   server.listen(process.env.PORT).then(({ url }) => {
