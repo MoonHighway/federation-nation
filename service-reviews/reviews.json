@@ -1,0 +1,13 @@
+[
+  {
+    "id": "review:hue-review:alex@moonhighway.com:R82rQsRg",
+    "appID": "hue-review",
+    "itemID": "R82rQsRg",
+    "rating": 5,
+    "comment": "This color is rad!",
+    "created": "2019-10-26T22:06:23.076Z",
+    "user": {
+      "email": "alex@moonhighway.com"
+    }
+  }
+]
