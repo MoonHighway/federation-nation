@@ -18,14 +18,6 @@ const saveReviews = async (newReviews = []) => {
   }
 };
 
-const removeReview = (appID, currentUser, itemID) =>
-  reviews.filter(
-    (review) =>
-      review.appID === appID &&
-      review.user.email === currentUser &&
-      review.itemID === itemID
-  );
-
 const countReviews = (appID) => reviews.filter((r) => r.appID === appID).length;
 const findReviews = (appID) => reviews.filter((r) => r.appID === appID);
 
@@ -74,8 +66,6 @@ const addReview = (currentUser, appID, itemID, rating, comment) => {
   if (itemID.indexOf(":") != -1) {
     throw new Error("Invalid itemID. The itemID cannot contain ':' collins.");
   }
-
-  const reviews = removeReview(appID, currentUser, itemID);
 
   const newReview = {
     id: `review:${appID}:${currentUser}:${itemID}`,
