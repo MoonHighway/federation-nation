@@ -1,18 +1,18 @@
 {
-  "name": "trail-graphql-api",
+  "name": "gateway-hue-review",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "PORT=5002 nodemon ."
+    "start": "PORT=4000 nodemon ."
   },
   "keywords": [],
   "author": "",
-  "license": "MIT",
+  "license": "ISC",
   "dependencies": {
-    "@apollo/federation": "^0.23.0",
-    "apollo-server": "latest",
-    "graphql": "latest"
+    "@apollo/gateway": "^0.26.0",
+    "apollo-server": "^2.22.2",
+    "graphql": "^15.5.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.7"

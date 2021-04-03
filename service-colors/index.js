@@ -1,5 +1,6 @@
 const { ApolloServer, gql } = require("apollo-server");
 const { addColor, countColors, findColors, findColor } = require("./lib");
+const { buildFederatedSchema } = require("@apollo/federation");
 
 const typeDefs = gql`
   scalar DateTime
@@ -26,8 +27,10 @@ const resolvers = {
 
 const start = async () => {
   const server = new ApolloServer({
-    typeDefs,
-    resolvers,
+    schema: buildFederatedSchema({
+      typeDefs,
+      resolvers,
+    }),
     context: ({ req }) => ({
       countColors,
       findColors,

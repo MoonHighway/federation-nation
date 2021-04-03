@@ -10,5 +10,11 @@
     "name": "Alex Banks",
     "password": "$2b$10$4fkF68s2PmoI3t.c.z3hcu9xDRAKiuyxFollQiCHvWttNtm4Q3hnC",
     "created": "2019-10-25T03:07:08.521Z"
+  },
+  {
+    "email": "biscuit@cat.com",
+    "name": "Biscuit Cat",
+    "password": "$2b$10$FcrYsHlzv0a7ucUz4xR.CuS0iavXwvoys8fuYj47u5I8VbNJvWfnu",
+    "created": "2021-04-03T22:13:37.249Z"
   }
 ]

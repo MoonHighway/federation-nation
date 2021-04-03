@@ -1,5 +1,6 @@
 const { ApolloServer, gql } = require("apollo-server");
 const trails = require("./trail-data.json");
+const { buildFederatedSchema } = require("@apollo/federation");
 
 const typeDefs = gql`
   type Trail {
@@ -54,8 +55,10 @@ const resolvers = {
 };
 
 const server = new ApolloServer({
-  typeDefs,
-  resolvers,
+  schema: buildFederatedSchema({
+    typeDefs,
+    resolvers,
+  }),
 });
 
 server.listen(process.env.PORT).then(({ url }) => {
