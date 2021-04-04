@@ -20,5 +20,27 @@
     "user": {
       "email": "eve@moonhighway.com"
     }
+  },
+  {
+    "id": "review:snowtooth:alex@moonhighway.com:blue-bird",
+    "appID": "snowtooth",
+    "itemID": "blue-bird",
+    "rating": 1,
+    "comment": "This trail sucks",
+    "created": "2021-04-04T00:16:56.463Z",
+    "user": {
+      "email": "alex@moonhighway.com"
+    }
+  },
+  {
+    "id": "review:snowtooth:alex@moonhighway.com:blue-bird",
+    "appID": "snowtooth",
+    "itemID": "blue-bird",
+    "rating": 5,
+    "comment": "This is my kind of trail",
+    "created": "2021-04-04T00:17:19.444Z",
+    "user": {
+      "email": "alex@moonhighway.com"
+    }
   }
 ]

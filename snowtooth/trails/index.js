@@ -12,11 +12,22 @@ const typeDefs = gql`
     groomed: Boolean!
     trees: Boolean!
     night: Boolean!
+    feedback: ReviewableItem!
   }
 
   extend type Lift @key(fields: "id") {
     id: ID! @external
     easyWayDown: Trail!
+  }
+
+  extend type ReviewableItem @key(fields: "itemID") {
+    itemID: ID! @external
+  }
+
+  extend type Review @key(fields: "id") {
+    id: ID! @external
+    itemID: ID! @external
+    trail: Trail! @requires(fields: "itemID")
   }
 
   enum Difficulty {
@@ -59,6 +70,7 @@ const resolvers = {
     },
   },
   Trail: {
+    feedback: ({ id }) => ({ itemID: id }),
     __resolveReference: (reference) =>
       trails.find((trail) => trail.id === reference.id),
   },
@@ -67,6 +79,9 @@ const resolvers = {
       const waysDown = trails.filter((trail) => trail.lift.includes(lift.id));
       return findEasiestTrail(waysDown);
     },
+  },
+  Review: {
+    trail: ({ itemID }) => trails.find((trail) => trail.id === itemID),
   },
 };
 
