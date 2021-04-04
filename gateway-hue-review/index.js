@@ -50,4 +50,4 @@ const start = async () => {
   });
 };
 
-start();
+setTimeout(start, 2000);

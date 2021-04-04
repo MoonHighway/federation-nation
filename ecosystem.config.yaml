@@ -1,0 +1,36 @@
+apps:
+  - script: ./gateway-hue-review
+    name: "gateway-hue-review"
+    instances: 1
+    env:
+      PORT: 4000
+  - script: ./snowtooth/gateway
+    name: "gateway-snowtooth"
+    instances: 1
+    env:
+      PORT: 5000
+  - script: ./service-accounts
+    name: "service-accounts"
+    instances: 1
+    env:
+      PORT: 4001
+  - script: ./service-colors
+    name: "service-colors"
+    instances: 1
+    env:
+      PORT: 4002
+  - script: ./service-reviews
+    name: "service-reviews"
+    instances: 1
+    env:
+      PORT: 4003
+  - script: ./snowtooth/lifts
+    name: "service-lifts"
+    instances: 1
+    env:
+      PORT: 5001
+  - script: ./snowtooth/trails
+    name: "service-trails"
+    instances: 1
+    env:
+      PORT: 5002

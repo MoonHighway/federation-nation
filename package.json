@@ -1,0 +1,27 @@
+{
+  "name": "federation-nation",
+  "version": "1.0.0",
+  "description": "Student files for Moon Highway's Federation Nation Course",
+  "main": "index.js",
+  "scripts": {
+    "install": "cd gateway-hue-review; npm i; cd ../service-accounts; npm i; cd ../service-colors; npm i; cd ../service-reviews; npm i; cd ../snowtooth/gateway; npm i; cd ../lifts; npm i; cd ../trails; npm i; cd ..;",
+    "start": "pm2 start ecosystem.config.yaml",
+    "stop": "pm2 stop ecosystem.config.yaml",
+    "delete": "pm2 delete ecosystem.config.yaml",
+    "logs": "pm2 logs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MoonHighway/federation-nation.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MoonHighway/federation-nation/issues"
+  },
+  "homepage": "https://github.com/MoonHighway/federation-nation#readme",
+  "devDependencies": {
+    "pm2": "^4.5.6"
+  }
+}
