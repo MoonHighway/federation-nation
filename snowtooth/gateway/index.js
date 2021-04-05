@@ -11,7 +11,7 @@ class AuthenticatedDataSource extends RemoteGraphQLDataSource {
         request.http.headers.set("authorization", context.authorization);
       }
     }
-    request.http.headers.set("app-id", "hue-review");
+    request.http.headers.set("app-id", "snowtooth");
   }
 }
 
