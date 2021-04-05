@@ -1,31 +1,17 @@
 const { ApolloServer } = require("apollo-server");
 const { ApolloGateway, RemoteGraphQLDataSource } = require("@apollo/gateway");
-const fetch = require("node-fetch");
+const fetchUserEmail = require("./fetchUserEmail");
 
 class AuthenticatedDataSource extends RemoteGraphQLDataSource {
   async willSendRequest({ request, context }) {
     if (context.authorization) {
-      const query = `query findUserEmail { me { email } }`;
-      const options = {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          authorization: context.authorization,
-        },
-        body: JSON.stringify({ query }),
-      };
-
-      const { data } = await fetch("http://localhost:4001", options)
-        .then((res) => res.json())
-        .catch(console.error);
-
-      if (data && data.me) {
-        request.http.headers.set("user-email", data.me.email);
+      const email = await fetchUserEmail(context.authorization);
+      if (email) {
+        request.http.headers.set("user-email", email);
+        request.http.headers.set("authorization", context.authorization);
       }
-
-      request.http.headers.set("authorization", context.authorization);
     }
-    request.http.headers.set("app-id", "snowtooth");
+    request.http.headers.set("app-id", "hue-review");
   }
 }
 
