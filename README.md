@@ -14,6 +14,10 @@ Welcome to the Apollo Federation Nation GraphQL Course. We are assuming that you
 - **Eve Porcello**: [Twitter](https://twitter.com/eveporcello) | [Email](mailto:eve@moonhighway.com)
 - **Moon Highway Training**: [Moon Highway Website](https://www.moonhighway.com) | [Mailing List](http://bit.ly/moonhighway) | [Articles](https://www.moonhighway.com/articles)
 
+## Slides
+
+- You can find the slides in the root of this project: `slides-federation.html`. Open in your browser to view!
+
 ## Clone the Repo
 
 These files are your starting point. We are going to build and compose a wonderful collection of services. Clone or download these files to get started.
