@@ -16,7 +16,7 @@ Welcome to the Apollo Federation Nation GraphQL Course. We are assuming that you
 
 ## Slides
 
-- You can find the slides in the root of this project: `slides-federation.html`. Open in your browser to view!
+You can find the slides in the root of this project: `slides-federation.html`. Open in your browser to view.
 
 ## Clone the Repo
 
