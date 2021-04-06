@@ -27,7 +27,7 @@ After you have cloned the repo, simply checkout the [Completed Solution](https:/
 git checkout complete-solution
 ```
 
-Then install the files
+Then install the files:
 
 ```
 npm install
@@ -39,7 +39,7 @@ This installer installs the files for each service, in every subfolder. Be patie
 npm start
 ```
 
-Once the files are installed `npm start` will start one instance of each service using pm2. You can only run one instance of each service because this course does not use a persistent data layer. It was designed to teach federation, not build your entire architecture. It stores data in memory, so if you spin up more than one instance of each service, you will see some wacky results. 
+Once the files are installed, `npm start` will start one instance of each service using pm2. You can only run one instance of each service because this course does not use a persistent data layer. It was designed to teach federation, not build your entire architecture. It stores data in memory, so if you spin up more than one instance of each service, you will see some wacky results. 
 
 The services should be running locally on the following ports. Please make sure you are not currently running any other applications locally on any of these ports:
 
