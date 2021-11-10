@@ -13,7 +13,7 @@
     "nodemon": "^2.0.7"
   },
   "dependencies": {
-    "@apollo/federation": "^0.33.6",
+    "@apollo/subgraph": "^0.1.4",
     "apollo-server": "^3.5.0",
     "bcrypt": "^5.0.1",
     "graphql": "^15.7.2",

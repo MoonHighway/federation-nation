@@ -1,5 +1,5 @@
 const { ApolloServer, gql } = require("apollo-server");
-const { buildFederatedSchema } = require("@apollo/federation");
+const { buildSubgraphSchema } = require("@apollo/subgraph");
 
 const {
   addAccount,
@@ -36,19 +36,26 @@ const typeDefs = gql`
 
   type Mutation {
     createAccount(input: CreateAccountForm!): AuthPayload!
-    authorize(email: String!, password: String!): AuthPayload!
+    authorize(
+      email: String!
+      password: String!
+    ): AuthPayload!
   }
 `;
 
 const resolvers = {
   Query: {
     me: (_, __, { currentUser }) => currentUser,
-    accounts: (_, __, { findAllAccounts }) => findAllAccounts()
+    accounts: (_, __, { findAllAccounts }) =>
+      findAllAccounts()
   },
   Mutation: {
     async createAccount(_, { input }, { addAccount }) {
       const user = await addAccount(input);
-      const token = jwt.sign({ email: user.email }, "graphqlyall");
+      const token = jwt.sign(
+        { email: user.email },
+        "graphqlyall"
+      );
       return {
         token,
         user
@@ -60,9 +67,14 @@ const resolvers = {
         throw new Error(`account for ${email} not found`);
       }
       if (!verifyPassword(user, password)) {
-        throw new Error(`password for ${email} is incorrect`);
+        throw new Error(
+          `password for ${email} is incorrect`
+        );
       }
-      const token = jwt.sign({ email: user.email }, "graphqlyall");
+      const token = jwt.sign(
+        { email: user.email },
+        "graphqlyall"
+      );
       return {
         token,
         user
@@ -103,7 +115,9 @@ const start = async () => {
   });
 
   server.listen(process.env.PORT).then(({ url }) => {
-    console.log(`     👨‍👨‍👧‍👦   - Account service running at: ${url}`);
+    console.log(
+      `     👨‍👨‍👧‍👦   - Account service running at: ${url}`
+    );
   });
 };
 
