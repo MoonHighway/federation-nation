@@ -10,7 +10,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@apollo/federation-internals": "^2.0.0-alpha.0",
     "@apollo/gateway": "^2.0.0-alpha.1",
+    "@apollo/query-graphs": "^2.0.0-alpha.0",
+    "apollo-server": "^3.5.0",
     "graphql": "15.5.3",
     "node-fetch": "^2.6.1"
   },
