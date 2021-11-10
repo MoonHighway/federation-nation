@@ -1,5 +1,11 @@
 const { ApolloServer, gql } = require("apollo-server");
-const { addColor, countColors, findColors, findColor } = require("./lib");
+const { buildSubgraphSchema } = require("@apollo/subgraph");
+const {
+  addColor,
+  countColors,
+  findColors,
+  findColor
+} = require("./lib");
 
 const typeDefs = gql`
   scalar DateTime
@@ -20,24 +26,28 @@ const typeDefs = gql`
 const resolvers = {
   Query: {
     totalColors: (_, __, { countColors }) => countColors(),
-    allColors: (_, __, { findColors }) => findColors(),
-  },
+    allColors: (_, __, { findColors }) => findColors()
+  }
 };
 
 const start = async () => {
   const server = new ApolloServer({
-    typeDefs,
-    resolvers,
+    schema: buildSubgraphSchema({
+      typeDefs,
+      resolvers
+    }),
     context: ({ req }) => ({
       countColors,
       findColors,
       addColor,
-      findColor,
-    }),
+      findColor
+    })
   });
 
   server.listen(process.env.PORT).then(({ url }) => {
-    console.log(`       🎨 🖍  - Color service running at: ${url}`);
+    console.log(
+      `       🎨 🖍  - Color service running at: ${url}`
+    );
   });
 };
 

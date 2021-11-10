@@ -10,6 +10,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@apollo/gateway": "^2.0.0-alpha.1",
+    "apollo-server": "^3.5.0",
+    "graphql": "^15.7.2",
     "node-fetch": "^2.6.1"
   },
   "devDependencies": {
