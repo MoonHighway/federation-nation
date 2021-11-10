@@ -1,11 +1,11 @@
 const { ApolloServer, gql } = require("apollo-server");
-const { buildFederatedSchema } = require("@apollo/federation");
+const { buildSubgraphSchema } = require("@apollo/subgraph");
 const {
   addReview,
   findAllItemReviews,
   countReviews,
   findReviews,
-  findReviewById,
+  findReviewById
 } = require("./lib");
 
 const typeDefs = gql`
@@ -20,18 +20,20 @@ const typeDefs = gql`
 
 const resolvers = {
   Query: {
-    totalReviews: (_, __, { countReviews, appID }) => countReviews(appID),
-    allReviews: (_, __, { findReviews, appID }) => findReviews(appID),
-  },
+    totalReviews: (_, __, { countReviews, appID }) =>
+      countReviews(appID),
+    allReviews: (_, __, { findReviews, appID }) =>
+      findReviews(appID)
+  }
 };
 
 const start = async () => {
   const server = new ApolloServer({
-    schema: buildFederatedSchema([
+    schema: buildSubgraphSchema([
       {
         resolvers,
-        typeDefs,
-      },
+        typeDefs
+      }
     ]),
     context({ req }) {
       return {
@@ -40,12 +42,14 @@ const start = async () => {
         addReview,
         findAllItemReviews,
         findReviewById,
-        appID: req.headers["app-id"],
+        appID: req.headers["app-id"]
       };
-    },
+    }
   });
   server.listen(process.env.PORT).then(({ url }) => {
-    console.log(`⭐️ ⭐️ ⭐️ ⭐️ ⭐️  - Review service running at: ${url}`);
+    console.log(
+      `⭐️ ⭐️ ⭐️ ⭐️ ⭐️  - Review service running at: ${url}`
+    );
   });
 };
 
