@@ -85,7 +85,7 @@ const resolvers = {
 
 const start = async () => {
   const server = new ApolloServer({
-    schema: buildFederatedSchema({
+    schema: buildSubgraphSchema({
       typeDefs,
       resolvers
     }),
