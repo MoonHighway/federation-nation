@@ -1,11 +1,11 @@
-const { ApolloServer, gql } = require("apollo-server");
+const { ApolloServer, gql } = require("@apollo/server");
 const { buildSubgraphSchema } = require("@apollo/subgraph");
 
 const {
   addAccount,
   findAllAccounts,
   findAccount,
-  verifyPassword
+  verifyPassword,
 } = require("./lib");
 const jwt = require("jsonwebtoken");
 
@@ -47,7 +47,7 @@ const resolvers = {
   Query: {
     me: (_, __, { currentUser }) => currentUser,
     accounts: (_, __, { findAllAccounts }) =>
-      findAllAccounts()
+      findAllAccounts(),
   },
   Mutation: {
     async createAccount(_, { input }, { addAccount }) {
@@ -58,7 +58,7 @@ const resolvers = {
       );
       return {
         token,
-        user
+        user,
       };
     },
     authorize(_, { email, password }, { findAccount }) {
@@ -77,17 +77,17 @@ const resolvers = {
       );
       return {
         token,
-        user
+        user,
       };
-    }
-  }
+    },
+  },
 };
 
 const start = async () => {
   const server = new ApolloServer({
     schema: buildSubgraphSchema({
       typeDefs,
-      resolvers
+      resolvers,
     }),
     mocks: true,
     mockEntireSchema: false,
@@ -109,9 +109,9 @@ const start = async () => {
         addAccount,
         findAccount,
         findAllAccounts,
-        verifyPassword
+        verifyPassword,
       };
-    }
+    },
   });
 
   server.listen(process.env.PORT).then(({ url }) => {
