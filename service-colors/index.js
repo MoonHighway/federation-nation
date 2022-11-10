@@ -1,5 +1,14 @@
-const { ApolloServer, gql } = require("apollo-server");
-const { addColor, countColors, findColors, findColor } = require("./lib");
+const { ApolloServer } = require("@apollo/server");
+const {
+  startStandaloneServer,
+} = require("@apollo/server/standalone");
+const { gql } = require("graphql-tag");
+const {
+  addColor,
+  countColors,
+  findColors,
+  findColor,
+} = require("./lib");
 
 const typeDefs = gql`
   scalar DateTime
@@ -24,21 +33,21 @@ const resolvers = {
   },
 };
 
-const start = async () => {
+async function startApolloServer() {
   const server = new ApolloServer({
     typeDefs,
     resolvers,
+  });
+  const { url } = await startStandaloneServer(server, {
     context: ({ req }) => ({
       countColors,
       findColors,
       addColor,
       findColor,
     }),
+    listen: { port: process.env.PORT },
   });
+  console.log(`colors service running at: ${url}`);
+}
 
-  server.listen(process.env.PORT).then(({ url }) => {
-    console.log(`       🎨 🖍  - Color service running at: ${url}`);
-  });
-};
-
-start();
+startApolloServer();

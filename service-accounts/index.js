@@ -1,6 +1,9 @@
-const { ApolloServer, gql } = require("@apollo/server");
+const { ApolloServer } = require("@apollo/server");
 const { buildSubgraphSchema } = require("@apollo/subgraph");
-
+const {
+  startStandaloneServer,
+} = require("@apollo/server/standalone");
+const { gql } = require("graphql-tag");
 const {
   addAccount,
   findAllAccounts,
@@ -83,14 +86,14 @@ const resolvers = {
   },
 };
 
-const start = async () => {
+async function startApolloServer() {
   const server = new ApolloServer({
     schema: buildSubgraphSchema({
       typeDefs,
       resolvers,
     }),
-    mocks: true,
-    mockEntireSchema: false,
+  });
+  const { url } = await startStandaloneServer(server, {
     context({ req }) {
       let currentUser = null;
       if (req.headers.authorization) {
@@ -112,13 +115,9 @@ const start = async () => {
         verifyPassword,
       };
     },
+    listen: { port: process.env.PORT },
   });
+  console.log(`👨‍👩‍👦‍👦 Accounts service running at ${url}`);
+}
 
-  server.listen(process.env.PORT).then(({ url }) => {
-    console.log(
-      `     👨‍👨‍👧‍👦   - Account service running at: ${url}`
-    );
-  });
-};
-
-start();
+startApolloServer();
