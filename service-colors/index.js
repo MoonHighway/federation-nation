@@ -81,6 +81,7 @@ async function startApolloServer() {
       findColors,
       addColor,
       findColor,
+      currentUser: req.headers["user-email"],
     }),
     listen: { port: process.env.PORT },
   });
