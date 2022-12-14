@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "PORT=4000 nodemon ."
+    "start": "nodemon ."
   },
   "keywords": [],
   "author": "",
