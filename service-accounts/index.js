@@ -115,7 +115,7 @@ async function startApolloServer() {
         verifyPassword,
       };
     },
-    listen: { port: process.env.PORT },
+    listen: { port: 4001 },
   });
   console.log(`👨‍👩‍👦‍👦 Accounts service running at ${url}`);
 }
