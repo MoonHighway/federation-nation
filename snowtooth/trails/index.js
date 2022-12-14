@@ -66,7 +66,7 @@ const resolvers = {
 async function startApolloServer() {
   const server = new ApolloServer({ typeDefs, resolvers });
   const { url } = await startStandaloneServer(server, {
-    listen: { port: process.env.PORT },
+    listen: { port: 5002 },
   });
   console.log(
     `🏔 Snowtooth - trail Service running at ${url}`
