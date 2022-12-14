@@ -4,7 +4,7 @@
   "description": "A service to manage all of the colors posted to the hue-review.",
   "main": "index.js",
   "scripts": {
-    "start": "PORT=4002 nodemon ."
+    "start": "nodemon ."
   },
   "keywords": [],
   "author": "",

@@ -45,7 +45,7 @@ async function startApolloServer() {
       addColor,
       findColor,
     }),
-    listen: { port: process.env.PORT },
+    listen: { port: 4002 },
   });
   console.log(`colors service running at: ${url}`);
 }

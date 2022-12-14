@@ -4,7 +4,7 @@
   "description": "A service to reviews and comments for all users across multiple applications.",
   "main": "index.js",
   "scripts": {
-    "start": "PORT=4003 nodemon ."
+    "start": "nodemon ."
   },
   "keywords": [],
   "author": "",
