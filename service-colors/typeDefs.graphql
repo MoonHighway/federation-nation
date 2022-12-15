@@ -1,0 +1,13 @@
+scalar DateTime
+
+  type Color {
+    id: ID!
+    title: String!
+    value: String!
+    created: DateTime!
+  }
+
+  type Query {
+    totalColors: Int!
+    allColors: [Color!]!
+  }

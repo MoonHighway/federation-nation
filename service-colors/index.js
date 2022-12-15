@@ -2,6 +2,7 @@ const { ApolloServer } = require("@apollo/server");
 const {
   startStandaloneServer,
 } = require("@apollo/server/standalone");
+const { buildSubgraphSchema } = require("@apollo/subgraph");
 const { gql } = require("graphql-tag");
 const {
   addColor,
@@ -35,8 +36,10 @@ const resolvers = {
 
 async function startApolloServer() {
   const server = new ApolloServer({
-    typeDefs,
-    resolvers,
+    schema: buildSubgraphSchema ({
+      typeDefs,
+      resolvers,
+    }),
   });
   const { url } = await startStandaloneServer(server, {
     context: ({ req }) => ({
